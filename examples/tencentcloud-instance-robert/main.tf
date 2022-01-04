@@ -21,17 +21,20 @@ resource "tencentcloud_vpc" "app" {
 
 resource "tencentcloud_subnet" "app" {
   vpc_id            = tencentcloud_vpc.app.id
-  availability_zone = data.tencentcloud_availability_zones_by_product.my_favorate_zones.zones.0.name
+  availability_zone = data.tencentcloud_availability_zones_by_product.my_favorate_zones.zones.2.name
   name              = "awesome_app_subnet"
   cidr_block        = "10.0.1.0/24"
 }
 
+
+
 // Create 1 CVM instances to host awesome_app
 resource "tencentcloud_instance" "my_awesome_app" {
-  instance_name     = "awesome_app"
-  availability_zone = data.tencentcloud_availability_zones_by_product.my_favorate_zones.zones.0.name
-  image_id          = data.tencentcloud_images.my_favorate_image.images.0.image_id
-  instance_type     = data.tencentcloud_instance_types.my_favorite_instance_types.instance_types.0.instance_type
+  instance_name     = "Robert_VM_Created_By_Terraform"
+  availability_zone = data.tencentcloud_availability_zones_by_product.my_favorate_zones.zones.2.name
+  image_id          = "img-9qrfy1xt"  //data.tencentcloud_images.my_favorate_image.images.0.image_id
+  instance_type     = "S5.MEDIUM4"
+ // instance_type     = data.tencentcloud_instance_types.my_favorite_instance_types.instance_types.0.instance_type
   system_disk_type  = "CLOUD_PREMIUM"
   system_disk_size  = 50
   hostname          = "user"
@@ -69,13 +72,13 @@ resource "tencentcloud_security_group_lite_rule" "foo" {
   ingress = [
     "ACCEPT#192.168.1.0/24#80#TCP",
     "DROP#8.8.8.8#80,90#UDP",
-    "ACCEPT#0.0.0.0/0#80-90#TCP",
-    "ACCEPT#0.0.0.0/0#ALL#ALL",
+ //   "ACCEPT#0.0.0.0/0#80-90#TCP",
+ //   "ACCEPT#0.0.0.0/0#ALL#ALL",
   ]
 
   egress = [
     "ACCEPT#192.168.0.0/16#ALL#TCP",
     "ACCEPT#10.0.0.0/8#ALL#ICMP",
-    "ACCEPT#0.0.0.0/0#ALL#ALL",
+//    "ACCEPT#0.0.0.0/0#ALL#ALL",
   ]
 }
