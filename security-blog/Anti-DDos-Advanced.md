@@ -18,7 +18,7 @@ The architecture is consists of three parts:
 In order to test the terraform API in Auti-DDoS Advanced product, the steps are itemized below.
 
 ## Step 1: Setup an Anti-DDos Advaned Product
-Note well: There is no Terraform API to creat and distroy the Anti-DDos Advaned Product. So we have to operate in the web.
+Note well: There is no Terraform API to creat and destory the Anti-DDos Advaned Product. So we have to operate in the web.
 [TencentCloudAntiDDosAdvanced](https://console.intl.cloud.tencent.com/ddos/antiddos-advanced/package).
 
 ## Step 2: Setup an Virtual Machine
