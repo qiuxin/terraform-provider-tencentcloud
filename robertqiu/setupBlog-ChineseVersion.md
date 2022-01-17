@@ -15,7 +15,7 @@
 
 # 环境搭建
 ## 第一步 环境搭建：安装Terraform
-配置电脑上，需要先安装Terraform。我使用的是
+配置电脑上，需要先安装Terraform。我使用的是CentOS系统，安装命令如下：<br>
 
 ```
 sudo yum install -y yum-utils
@@ -24,12 +24,17 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashi
 
 sudo yum -y install terraform
 ```
+安装完成之后，使用如下命令测试是否安装成功：<br>
 
 ```
 [root@VM-32-16-centos ~]# terraform version
 Terraform v1.0.11
 on linux_amd64
 ```
+
+有关更多操作系统的安装方法，详见：
+[官网安装说明](https://learn.hashicorp.com/tutorials/terraform/install-cli)<br>
+
 
 ## 第一步 环境搭建：安装Terraform
 
