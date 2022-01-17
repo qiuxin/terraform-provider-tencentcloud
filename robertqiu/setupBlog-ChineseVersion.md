@@ -112,6 +112,7 @@ systemctl status nginx
 
 <br>
 <br>
+
 ## 第四步 测试L4层接口
 ### 4.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
@@ -162,7 +163,7 @@ ssh root@${高仿IP地址} -p $port
 
 ### 5.5 测试网站是否可以正常访问
 测试网站，可以被正常访问。
-![腾讯云DNS解析](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "腾讯云DNS解析")<br>
+![网站访问](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "网站访问")<br>
 <br>
 <br>
 
