@@ -88,10 +88,7 @@ terraform output
 
 
 ## 第三步 创建DDoS环境
-在配置电脑上安装Terraform之后，要做到的就是，利用Terraform在腾讯云上创建虚拟机。<br>
-```
-
-```
+目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
 
 
 ## 第四步 连接DDoS和虚拟机
