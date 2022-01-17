@@ -85,16 +85,33 @@ terraform output
 ```
 
 
-
-
 ## 第三步 创建DDoS环境
 目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
 
 
-## 第四步 连接DDoS和虚拟机
+## 第四步 测试L4层接口
+### 4.1 配置虚拟机安全组
+数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
+有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
 
 
-## 第四步 
+### 4.2  通过Terraform API来配置DDOS L4的规则
+具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L4 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
+
+
+### 4.3 测试访问
+配置完虚拟机安全组之后，就可以通过高仿IP提供的IP地址来登陆访问虚拟机了。通过 “ssh命令 + 高仿IP” 的组合来访问虚拟机。 <br>
+```
+ssh root@${高仿IP地址} -p $port
+```
+
+
+## 第五步 测试L7层接口
+### 5.1
+
+### 5.2
+
+### 5.3
 
 
 ## 参考文档
