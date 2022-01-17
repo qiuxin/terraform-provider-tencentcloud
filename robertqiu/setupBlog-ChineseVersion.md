@@ -46,6 +46,8 @@ on linux_amd64
 有关更多操作系统的安装方法，详见：
 [官网安装说明](https://learn.hashicorp.com/tutorials/terraform/install-cli)<br>
 
+<br>
+<br>
 
 
 ## 第二步 创建虚拟机
@@ -85,50 +87,58 @@ terraform destory
 terraform output
 ```
 
-虚拟机创建完成之后，在上面安装nginx，并且提供服务。
+虚拟机创建完成之后，在上面安装nginx，并且提供服务。<br>
 ```
 yum install -y nginx
 ```
 
-启动nginx服务：
+启动nginx服务：<br>
 ```
 systemctl nginx enable
 ```
 
-查看nginx服务状体，确定是否被启动
+查看nginx服务状体，确定是否被启动<br>
 ```
 systemctl status nginx
 ```
 
-成功启动成功之后，就可以在其它机器上，通过“IP”来访问nginx提供的web服务了。
+成功启动成功之后，就可以在其它机器上，通过“IP”来访问nginx提供的web服务了。<br>
 
+<br>
+<br>
 
 ## 第三步 创建DDoS环境
 目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
 
-
+<br>
+<br>
 ## 第四步 测试L4层接口
 ### 4.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
 有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
-
+<br>
+<br>
 
 ### 4.2  通过Terraform API来配置DDOS L4的规则
 具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L4 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
-
+<br>
+<br>
 
 ### 4.3 测试访问
 配置完虚拟机安全组之后，就可以通过高仿IP提供的IP地址来登陆访问虚拟机了。通过 “ssh命令 + 高仿IP” 的组合来访问虚拟机。 <br>
 ```
 ssh root@${高仿IP地址} -p $port
 ```
-
+<br>
+<br>
 
 ## 第五步 测试L7层接口
 ### 5.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
 有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
 注：4.1和5.1的操作是一样的，如果在4.1已经操作过，无需重复操作。
+<br>
+<br>
 
 ### 5.2 购买域名
 如果没有域名，访问如下网站进行购买：[腾讯云域名购买](https://console.cloud.tencent.com/domain)<br>
@@ -136,18 +146,25 @@ ssh root@${高仿IP地址} -p $port
 
 如果已经有腾讯云域名，直接进入5.3.
 如果需要转入，则可以转入域名。
+<br>
+<br>
 
 ### 5.3 配置腾讯云的DNS域名解析
 以我的域名，`http://www.robertqiu.site/` 为例， 配置DNS解析如下：
 ![腾讯云DNS解析](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/domain-setup.png "腾讯云DNS解析")<br>
+<br>
+<br>
 
 ### 5.4 通过Terraform API来配置DDOS L7的规则
 具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
+<br>
+<br>
 
 ### 5.5 测试网站是否可以正常访问
 测试网站，可以被正常访问。
 
-
+<br>
+<br>
 
 ## 参考文档
 [腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
