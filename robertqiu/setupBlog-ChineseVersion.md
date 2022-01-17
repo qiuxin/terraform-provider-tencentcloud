@@ -115,6 +115,4 @@ ssh root@${高仿IP地址} -p $port
 
 
 ## 参考文档
-[腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
-
-
+![腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
