@@ -11,6 +11,8 @@ Terraform操作不同的云资源是通过不同公司提供的Provider（中文
 Terraform Provider主要实现的功能和原理是：将Terraform API转换成各个云厂商自己的API，通过各个云厂商自己的API来操作自己的云资源。<br>
 对于腾讯云来说，就是将[腾讯云Terraform API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest)转换成[腾讯云API](https://cloud.tencent.com/document/api)。<br>
 
+有关Terraform功能维度的示意图如下：<br>
+![Terraform功能维度示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform功能维度示意图")<br>
 
 # 总体架构
 目标配置的总体架构如下图：<br>
