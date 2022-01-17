@@ -15,8 +15,21 @@
 
 # 环境搭建
 ## 第一步 环境搭建：安装Terraform
+配置电脑上，需要先安装Terraform。我使用的是
 
+```
+sudo yum install -y yum-utils
 
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+
+sudo yum -y install terraform
+```
+
+```
+[root@VM-32-16-centos ~]# terraform version
+Terraform v1.0.11
+on linux_amd64
+```
 
 ## 第一步 环境搭建：安装Terraform
 
