@@ -107,12 +107,25 @@ ssh root@${高仿IP地址} -p $port
 
 
 ## 第五步 测试L7层接口
-### 5.1
+### 5.1 配置虚拟机安全组
+数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
+有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
+注：4.1和5.1的操作是一样的，如果在4.1已经操作过，无需重复操作。
 
-### 5.2
+### 5.2 购买域名
+如果没有域名，访问如下网站进行购买：[腾讯云域名购买](https://console.cloud.tencent.com/domain)<br>
+![腾讯云域名购买示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/buy-domain.png "腾讯云域名购买示意图")<br>
 
-### 5.3
+
+### 5.3 配置腾讯云的DNS域名解析
+
+
+
+### 5.4 通过Terraform API来配置DDOS L7的规则
+
+### 5.5 测试网站是否可以正常访问
+
 
 
 ## 参考文档
-![腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
+[腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
