@@ -47,6 +47,7 @@ on linux_amd64
 [官网安装说明](https://learn.hashicorp.com/tutorials/terraform/install-cli)<br>
 
 
+
 ## 第二步 创建虚拟机
 
 在配置电脑上安装Terraform之后，要做到的就是，利用Terraform在腾讯云上创建虚拟机。<br>
@@ -84,6 +85,23 @@ terraform destory
 terraform output
 ```
 
+虚拟机创建完成之后，在上面安装nginx，并且提供服务。
+```
+yum install -y nginx
+```
+
+启动nginx服务：
+```
+systemctl nginx enable
+```
+
+查看nginx服务状体，确定是否被启动
+```
+systemctl status nginx
+```
+
+成功启动成功之后，就可以在其它机器上，通过“IP”来访问nginx提供的web服务了。
+
 
 ## 第三步 创建DDoS环境
 目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
@@ -116,14 +134,18 @@ ssh root@${高仿IP地址} -p $port
 如果没有域名，访问如下网站进行购买：[腾讯云域名购买](https://console.cloud.tencent.com/domain)<br>
 ![腾讯云域名购买示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/buy-domain.png "腾讯云域名购买示意图")<br>
 
+如果已经有腾讯云域名，直接进入5.3.
+如果需要转入，则可以转入域名。
 
 ### 5.3 配置腾讯云的DNS域名解析
-
-
+以我的域名，`http://www.robertqiu.site/` 为例， 配置DNS解析如下：
+![腾讯云DNS解析](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/domain-setup.png "腾讯云DNS解析")<br>
 
 ### 5.4 通过Terraform API来配置DDOS L7的规则
+具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
 
 ### 5.5 测试网站是否可以正常访问
+测试网站，可以被正常访问。
 
 
 
