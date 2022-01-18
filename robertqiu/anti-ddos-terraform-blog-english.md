@@ -26,7 +26,8 @@ Because the Terraform Providers of different companies are different, when a com
 
 The main functions and principles implemented by Terraform Provider are: convert the Terraform API into the API of each cloud vendor, and operate its own cloud resources through the API of each cloud vendor.<br>
 
-For Tencent Cloud, it is to convert [Tencent Cloud Terraform API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest) into [Tencent Cloud API](https://cloud.tencent.com /document/api). <br>
+For Tencent Cloud, it is to convert [Tencent Cloud Terraform API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest) into 
+ [Tencent Cloud API](https://cloud.tencent.com/document/api). <br>
 
 
 A schematic diagram of the Terraform functional dimension is as follows：<br>
