@@ -8,6 +8,6 @@ This folder is used to record the way operate Tencent Security product via Terra
 
 # 版本/Version
 [中文版本](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/anti-ddos-terraform-blog-chinese.md)<br>
-[English Version]()<br>
+[English Version](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/anti-ddos-terraform-blog-english.md)<br>
 
 
