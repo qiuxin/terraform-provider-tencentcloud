@@ -3,8 +3,8 @@
 - [Terraform功能](#Terraform功能)
 - [部署环境拓扑架构](#部署环境拓扑架构)
 - [环境搭建](#环境搭建)
-  - [第一步 配置电脑安装Terraform](##第一步配置电脑安装Terraform)
-  - [第二步 创建虚拟机](##第二步创建虚拟机)
+  - [第一步 配置电脑安装Terraform](##第一步-配置电脑安装Terraform)
+  - [第二步 创建虚拟机](##第二步-创建虚拟机)
   - [第三步 创建DDoS](##第三步创建DDoS)
   - [第四步 测试L4层接口](##第四步测试L4层接口)
   - [第五步 测试L7层接口](##第五步测试L7层接口)
@@ -38,7 +38,7 @@ Terraform Provider主要实现的功能和原理是：将Terraform API转换成�
 
 
 # 环境搭建
-## 第一步 配置电脑安装Terraform
+## 第一步-配置电脑安装Terraform
 配置电脑上，需要先安装Terraform。我使用的是CentOS系统，安装命令如下：<br>
 
 ```
@@ -63,7 +63,7 @@ on linux_amd64
 <br>
 
 
-## 第二步 创建虚拟机
+## 第二步-创建虚拟机
 
 在配置电脑上安装Terraform之后，要做到的就是，利用Terraform在腾讯云上创建虚拟机。<br>
 具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform Instance](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
