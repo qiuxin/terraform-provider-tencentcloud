@@ -5,36 +5,10 @@
 - [环境搭建](#环境搭建)
   - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
   - [第二步 创建虚拟机](#第二步-创建虚拟机)
-  - [第三步 创建DDoS](#第三步创建DDoS)
-  - [第四步 测试L4层接口](#第四步测试L4层接口)
-  - [第五步 测试L7层接口](#第五步测试L7层接口)
+  - [第三步 创建DDoS](#第三步-创建DDoS)
+  - [第四步 调用L4层接口](#第四步-调用L4层接口)
+  - [第五步 调用L7层接口](#第五步调用L7层接口)
 - [参考文档](#参考文档)
-
-- [一级标题](#一级标题)
-  - [标题 1-1](#二级标题 1-1)
-  - [标题 1-2](#二级标题 1-2)
-- [二级标题](#二级标题)
-  - [标题 2-1](#二级标题 2-1)
-  - [标题 2-2](#二级标题 2-2)
-- [一级标题](#一级标题)
-  - [标题 1-1](#二级标题 1-1)
-  - [标题 1-2](#二级标题 1-2)
-- [二级标题](#二级标题)
-  - [标题 2-1](#二级标题 2-1)
-  - [标题 2-2](#二级标题 2-2)
-
-# 一级标题
-一些内容……
-## 二级标题 1-1
-一些内容……
-## 二级标题 1-2
-一些内容……
-# 二级标题
-一些内容……
-## 二级标题 2-1
-一些内容……
-## 二级标题 2-2
-一些内容……
 
 
 # 说明
@@ -146,13 +120,13 @@ systemctl status nginx
 <br>
 <br>
 
-## 第三步 创建DDoS
+## 第三步-创建DDoS
 目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
 
 <br>
 <br>
 
-## 第四步 测试L4层接口
+## 第四步 调用L4层接口
 ### 4.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
 有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
@@ -204,7 +178,7 @@ ssh root@${高仿IP地址} -p $port
 <br>
 <br>
 
-## 第五步 测试L7层接口
+## 第五步 调用L7层接口
 ### 5.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
 有关具体的Forwarding IP Range，可以在国际站的：`Anti-DDoS Advanced(New) --> Service Packages` 界面下查询到。<br>
@@ -227,7 +201,7 @@ ssh root@${高仿IP地址} -p $port
 <br>
 <br>
 
-### 5.4 通过Terraform API来配置DDOS L7的规则
+### 5.4 通过Terraform API来配置DDOS L7规则
 具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L7-Rule)<br>
 - main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中配置了DDoS L7层的转发规则。<br>
 - data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
