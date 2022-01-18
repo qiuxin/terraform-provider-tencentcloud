@@ -1,7 +1,7 @@
 # Table of contents
 - [Information](#Information)
 - [Function](#Function)
-- [Deployment environment topology](#Deployment environment topology)
+- [Topology](#Topology)
 - [环境搭建](#环境搭建)
   - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
   - [第二步 创建虚拟机](#第二步-创建虚拟机)
@@ -32,14 +32,14 @@ For Tencent Cloud, it is to convert [Tencent Cloud Terraform API](https://regist
 A schematic diagram of the Terraform functional dimension is as follows：<br>
 ![Terraform functional dimension diagram](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform functional dimension diagram")<br>
 
-# Deployment environment topology
-目标配置的总体架构如下图：<br>
+# Topology
+The overall structure of the target configuration is as follows:<br>
 ![DDoS Architecture](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/DDoS-Architectrure.png "DDoS Architecture")<br>
-其中：<br>
-- User: 表示需要访问源站的用户，用户的访问请求先发给DDoS产品进行过滤和清洗后，会被送往需要访问的源站。<br>
-- Tencent DDos: 为腾讯DDoS产品，可以是高仿IP（DDoS部署位置在云外） 或者 高仿包（DDoS部署位置在云内）。<br>
-- VM: 虚拟机为业务的源站，用户的访问目标。<br>
-- 配置电脑: 图中的笔记本，用于表示Terraform平台的安装位置。该配置电脑通过Terraform API来配置DDoS产品，虚拟机产品，以及相关的网络和安全组。<br>
+wherein：<br>
+- User: Indicates the user who needs to access the origin site. The user's access request is first sent to the DDoS product for filtering and cleaning, and then sent to the origin site. <br>
+- Tencent DDos: It is a Tencent DDoS product, which can be deployed inside/outside Tencent cloud. <br>
+- VM: The virtual machine is the source site of the business and the user's access destination.<br>
+- Computer/Laptop: The computer/laptop in the picture is used to represent the installation location of the Terraform platform. The computer/laptop uses the Terraform API to configure DDoS products, virtual machine products, and related networking and security groups. <br>
 
 
 # 环境搭建
