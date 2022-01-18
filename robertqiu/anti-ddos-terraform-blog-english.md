@@ -112,14 +112,12 @@ Run terraform comand, for here, a virtual machine defined in main.tf will be cre
 terraform apply
 ```
 
-执行terraform命令，删除虚拟机。<br>
-
+Run terraform destory command. The resource created by `terraform apply` will be destoried.
 ```
 terraform destory
 ```
 
 执行terraform命令，打印输出定义的output参数。<br>
-
 ```
 terraform output
 ```
@@ -131,7 +129,6 @@ yum install -y nginx
 ```
 
 启动nginx服务：<br>
-
 ```
 systemctl nginx enable
 ```
