@@ -65,12 +65,11 @@ In terms of installaiton on multiple operation system, please refer to:
 <br>
 <br>
 
+## Step 2 - Create a virtual machine
+The second step is creating a virtual machine on Tencent Cloud via terrform API.<br>
 
-## 第二步-创建虚拟机
-
-在配置电脑上安装Terraform之后，要做到的就是，利用Terraform在腾讯云上创建虚拟机。<br>
-具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform Instance](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
-在如上文件夹中，主要有四个文件：<br>
+The detail codes for creating a VM ,pls refer to [Create Terraform Instance](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
+The folder mainly consists of four files: <br>
 - main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中创建了需要创建的资源，包括：虚拟机资源，安全组资源，VPC等资源。<br>
 - data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
 - outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。主要包括：虚拟机的公网IP，私网IP，创建时间等。<br>
