@@ -22,13 +22,15 @@ Terraform operates different cloud resources through Providers(aka plugin) provi
 
 The providers provided by different compnaies, refer to [Terraform Provider](https://registry.terraform.io/browse/providers)<br>
 <br>
+Because the Terraform Providers of different companies are different, when a company switches cloud service providers, it is not possible to keep all the code unchanged. The part of calling Terraform Provider still needs to be adapted.<br>
 
-因为不同公司的Terraform Provider都是不同的，所以当一个公司切换云服务商的时候，并不能做到所有的代码不改动，在调用Terraform Provider的部分还是要做适配性的改动。<br>
-Terraform Provider主要实现的功能和原理是：将Terraform API转换成各个云厂商自己的API，通过各个云厂商自己的API来操作自己的云资源。<br>
-对于腾讯云来说，就是将[腾讯云Terraform API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest)转换成[腾讯云API](https://cloud.tencent.com/document/api)。<br>
+The main functions and principles implemented by Terraform Provider are: convert the Terraform API into the API of each cloud vendor, and operate its own cloud resources through the API of each cloud vendor.<br>
 
-有关Terraform功能维度的示意图如下：<br>
-![Terraform功能维度示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform功能维度示意图")<br>
+For Tencent Cloud, it is to convert [Tencent Cloud Terraform API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest) into [Tencent Cloud API](https://cloud.tencent.com /document/api). <br>
+
+
+A schematic diagram of the Terraform functional dimension is as follows：<br>
+![Terraform functional dimension diagram](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform functional dimension diagram")<br>
 
 # 部署环境拓扑架构
 目标配置的总体架构如下图：<br>
