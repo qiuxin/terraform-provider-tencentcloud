@@ -1,4 +1,11 @@
-# 文档说明
+# 目录
+- [说明](#说明)
+- [Terraform功能](#Terraform功能)
+- [部署环境拓扑架构](#部署环境拓扑架构)
+- [环境搭建](#环境搭建)
+
+
+# 说明
 该文档用于帮助大家快速使用Terraform平台/接口来操作腾讯云的DDoS产品。<br>
 使用Terraform来配置腾讯云的DDoS产品，不仅仅涉及到DDoS产品本身, 还涉及到虚拟机, 网络, 安全组等操作。需要先配置好虚拟机，网络，安全组等信息，然后再和DDoS做关联。<br>
 
@@ -14,7 +21,7 @@ Terraform Provider主要实现的功能和原理是：将Terraform API转换成�
 有关Terraform功能维度的示意图如下：<br>
 ![Terraform功能维度示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform功能维度示意图")<br>
 
-# 总体架构
+# 部署环境拓扑架构
 目标配置的总体架构如下图：<br>
 ![DDoS Architecture](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/DDoS-Architectrure.png "DDoS Architecture")<br>
 其中：<br>
