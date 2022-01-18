@@ -1,6 +1,6 @@
 # Table of contents
 - [Information](#Information)
-- [Terraform功能](#Terraform功能)
+- [Function](#Function)
 - [部署环境拓扑架构](#部署环境拓扑架构)
 - [环境搭建](#环境搭建)
   - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
@@ -15,8 +15,10 @@
 This document helps you quickly use the Terraform platform/interface to operate Tencent Cloud's DDoS products.<br>
 In order to operate Tencent DDoS product via Terraform API, the whole architecture/topology(including network, virtual machine, DDoS, Security groups and so on) is required to set up prior to run `terraform command`.<br>
 
-# Terraform功能
-Terraform是一个Code as Platform平台，它可以帮助用户实现通过一个平台一种语言（HCL：HashiCorp Configuration Language）来高效配置和操作不同的云资源。<br>
+# Function
+Terraform is a Code as Platform platform that helps users efficiently configure and operate different cloud resources through a platform language (HCL: HashiCorp Configuration Language).<br>
+
+Terraform是一个Code as Platform平台，它可以帮助用户实现通过一个平台一种语言（HCL：HashiCorp Configuration Language）来高效配置和操作不同的云资源。
 Terraform操作不同的云资源是通过不同公司提供的Provider（中文也叫做：插件。英语也叫做Plugin。Provider是一种特殊的Plugin，或者说Terraform Plugin）来实现的。<br>
 不同的公司会提供自己的Provider用于和Terraform平台做对接，详见[Terraform Provider](https://registry.terraform.io/browse/providers)<br>
 <br>
