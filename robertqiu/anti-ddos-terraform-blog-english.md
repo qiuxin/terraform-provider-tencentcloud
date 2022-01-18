@@ -117,30 +117,28 @@ Run terraform destory command. The resource created by `terraform apply` will be
 terraform destory
 ```
 
-执行terraform命令，打印输出定义的output参数。<br>
+Print the output parameters defined in `output.tf`。<br>
 ```
 terraform output
 ```
 
-虚拟机创建完成之后，在上面安装nginx，并且提供服务。<br>
-
+Install nginx after the virtual machine is created. Ngnix is used to provide web service.<br>
 ```
 yum install -y nginx
 ```
 
-启动nginx服务：<br>
+Start nginx service<br>
 ```
 systemctl nginx enable
 ```
 
-查看nginx服务状体，确定是否被启动<br>
-
+Check nginx service status<br>
 ```
 systemctl status nginx
 ```
 
-成功启动成功之后，就可以在其它机器上，通过“IP”来访问nginx提供的web服务了。<br>
-
+You can visit the web provided by nginx if the foreing operation is executed successfully. 
+![网站访问](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "网站访问")<br>
 <br>
 <br>
 
