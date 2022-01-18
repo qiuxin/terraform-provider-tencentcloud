@@ -153,7 +153,7 @@ terraform destory
 terraform output
 ```
 
-成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。
+成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。<br>
 <br>
 <br>
 
@@ -168,7 +168,7 @@ ssh root@${高仿IP地址} -p $port
 ## 第五步 测试L7层接口
 ### 5.1 配置虚拟机安全组
 数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
-有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
+有关具体的Forwarding IP Range，可以在国际站的：`Anti-DDoS Advanced(New) --> Service Packages` 界面下查询到。<br>
 注：4.1和5.1的操作是一样的，如果在4.1已经操作过，无需重复操作。
 <br>
 <br>
@@ -189,9 +189,40 @@ ssh root@${高仿IP地址} -p $port
 <br>
 
 ### 5.4 通过Terraform API来配置DDOS L7的规则
-具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
+具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L7-Rule)<br>
+- main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中配置了DDoS L7层的转发规则。<br>
+- data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
+- outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。<br>。
+- variable.tf: 定义了main.tf中需要使用参数，其中包括：资源可用区域`TENCENTCLOUD_REGION`，使用腾讯云需要配置的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`。<br>
+这样分开文件书写的好处是，避免main.tf文件过长，更容易快速找到不同类型的资源和参数。<br>
+定义好了如上文件，在对应的文件夹下，直接运行如下命令即可：<br>
+```
+terraform init
+```
+
+确定被调用的文件，计算执行计划。<br>
+```
+terraform plan
+```
+
+执行terraform命令，创建虚拟机。<br>
+```
+terraform apply
+```
+
+执行terraform命令，删除虚拟机。<br>
+```
+terraform destory
+```
+
+执行terraform命令，打印输出定义的output参数。<br>
+```
+terraform output
+```
+成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。<br>
 <br>
 <br>
+
 
 ### 5.5 测试网站是否可以正常访问
 测试网站，可以被正常访问。
