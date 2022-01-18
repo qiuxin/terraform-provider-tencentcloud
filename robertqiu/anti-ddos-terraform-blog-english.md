@@ -1,7 +1,7 @@
 # Table of contents
 - [Information](#Information)
 - [Function](#Function)
-- [部署环境拓扑架构](#部署环境拓扑架构)
+- [Deployment environment topology](#Deployment environment topology)
 - [环境搭建](#环境搭建)
   - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
   - [第二步 创建虚拟机](#第二步-创建虚拟机)
@@ -32,7 +32,7 @@ For Tencent Cloud, it is to convert [Tencent Cloud Terraform API](https://regist
 A schematic diagram of the Terraform functional dimension is as follows：<br>
 ![Terraform functional dimension diagram](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/provider.png "Terraform functional dimension diagram")<br>
 
-# 部署环境拓扑架构
+# Deployment environment topology
 目标配置的总体架构如下图：<br>
 ![DDoS Architecture](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/DDoS-Architectrure.png "DDoS Architecture")<br>
 其中：<br>
