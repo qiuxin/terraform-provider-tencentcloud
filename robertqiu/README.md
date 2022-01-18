@@ -1,4 +1,5 @@
-[TOC]
+- [说明/Information](# 说明/Information )
+- [版本/Version](# 版本/Version)
 
 # 说明/Information 
 This folder is used to record the way operate Tencent Security product via Terraform.<br>
