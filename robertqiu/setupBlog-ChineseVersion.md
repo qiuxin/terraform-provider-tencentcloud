@@ -59,7 +59,7 @@ on linux_amd64
 - data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
 - outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。主要包括：虚拟机的公网IP，私网IP，创建时间等。<br>
 - variable.tf: 定义了main.tf中需要使用参数，其中包括：虚拟机可用区域，使用腾讯云需要配置的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`。<br>
-
+这样分开文件书写的好处是，避免main.tf文件过长，更容易快速找到不同类型的资源和参数。<br>
 如果需要使用如上虚拟机的Terraform接口，配置自己的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`之后，运行如下命令即可：<br>
 
 初始化<br>
@@ -121,7 +121,39 @@ systemctl status nginx
 <br>
 
 ### 4.2  通过Terraform API来配置DDOS L4的规则
-具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L4 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/instance)<br>
+具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L4 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L4-Rule)<br>
+在如上文件夹中，主要有四个文件：<br>
+- main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中配置了DDoS L4层的转发规则，包括在指定的`resource_id`DDoS资源上的源端口，转发端口，优先级，健康检查等规则。<br>
+- data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
+- outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。这里主要打印了：配置L4规则中的一些参数信息<br>。
+- variable.tf: 定义了main.tf中需要使用参数，其中包括：虚拟机可用区域`TENCENTCLOUD_REGION`，使用腾讯云需要配置的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`。<br>
+这样分开文件书写的好处是，避免main.tf文件过长，更容易快速找到不同类型的资源和参数。<br>
+定义好了如上文件，在对应的文件夹下，直接运行如下命令即可：<br>
+```
+terraform init
+```
+
+确定被调用的文件，计算执行计划。<br>
+```
+terraform plan
+```
+
+执行terraform命令，创建虚拟机。<br>
+```
+terraform apply
+```
+
+执行terraform命令，删除虚拟机。<br>
+```
+terraform destory
+```
+
+执行terraform命令，打印输出定义的output参数。<br>
+```
+terraform output
+```
+
+成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。
 <br>
 <br>
 
