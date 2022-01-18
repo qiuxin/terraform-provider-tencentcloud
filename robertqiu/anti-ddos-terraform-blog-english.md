@@ -137,8 +137,9 @@ Check nginx service status<br>
 systemctl status nginx
 ```
 
-You can visit the web provided by nginx if the foreing operation is executed successfully. 
-![网站访问](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "网站访问")<br>
+You can visit the web provided by nginx if the foreing operation is executed successfully. <br>
+
+![Ngnix Web](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "Ngnix Web")
 <br>
 <br>
 
