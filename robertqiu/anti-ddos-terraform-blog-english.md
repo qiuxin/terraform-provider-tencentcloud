@@ -2,7 +2,7 @@
 - [Information](#Information)
 - [Function](#Function)
 - [Topology](#Topology)
-- [环境搭建](#环境搭建)
+- [Environment construction](#Environment-construction)
   - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
   - [第二步 创建虚拟机](#第二步-创建虚拟机)
   - [第三步 创建DDoS](#第三步-创建DDoS)
@@ -42,10 +42,9 @@ wherein：<br>
 - Computer/Laptop: The computer/laptop in the picture is used to represent the installation location of the Terraform platform. The computer/laptop uses the Terraform API to configure DDoS products, virtual machine products, and related networking and security groups. <br>
 
 
-# 环境搭建
-## 第一步-配置电脑安装Terraform
-配置电脑上，需要先安装Terraform。我使用的是CentOS系统，安装命令如下：<br>
-
+# Environment-construction
+## Step1-Install Terraform
+Install Terraform software on the computer. Installation commands for CentOS are itemized below:v<br>
 ```
 sudo yum install -y yum-utils
 
@@ -54,16 +53,15 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashi
 sudo yum -y install terraform
 ```
 
-安装完成之后，使用如下命令测试是否安装成功：<br>
+Test after install successfully.<br>
 ```
 [root@VM-32-16-centos ~]# terraform version
 Terraform v1.0.11
 on linux_amd64
 ```
-
-有关更多操作系统的安装方法，详见：
-[官网安装说明](https://learn.hashicorp.com/tutorials/terraform/install-cli)<br>
-
+<br>
+In terms of installaiton on multiple operation system, please refer to:
+[Installation](https://learn.hashicorp.com/tutorials/terraform/install-cli)<br>
 <br>
 <br>
 
