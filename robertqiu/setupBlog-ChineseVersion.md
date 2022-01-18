@@ -231,4 +231,4 @@ terraform output
 <br>
 
 ## 参考文档
-[腾讯官网API]（https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance） <br>
+[腾讯官网API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance)<br>
