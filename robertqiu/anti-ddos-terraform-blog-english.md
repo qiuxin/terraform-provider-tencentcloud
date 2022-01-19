@@ -7,7 +7,7 @@
 - [Environment-construction](#environment-construction)
   - [Step1-Install Terraform](#step1-install-terraform)
   - [Step 2 - Create a virtual machine](#step-2---create-a-virtual-machine)
-  - [第三步-创建DDoS](#第三步-创建ddos)
+  - [Step 3 -Create DDoS](#Step3-Create-DDoS)
   - [第四步 调用L4层接口](#第四步-调用l4层接口)
     - [4.1 配置虚拟机安全组](#41-配置虚拟机安全组)
     - [4.2  通过Terraform API来配置DDOS L4的规则](#42--通过terraform-api来配置ddos-l4的规则)
@@ -143,7 +143,7 @@ You can visit the web provided by nginx if the foreing operation is executed suc
 <br>
 <br>
 
-## 第三步-创建DDoS
+## Step3-Create-DDoS
 
 目前腾讯云有关DDoS环境的创建和删除，暂时不支持Terraform方式，所以这部分工作需要使用传统的Web界面进行配置。<br>
 
