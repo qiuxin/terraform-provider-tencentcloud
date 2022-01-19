@@ -169,7 +169,7 @@ In the above folder, there are mainly four files: <br>
 
 - main.tf: This is the entry file of Terrform , which includes file path, resources, tencent authdication key as well as the configued rules(the source port on the specified `resource_id` DDoS resource, the forwarding port, the priority, Rules such as health checks and so on).
 - data.tf: The `data` that is used to search the resource based on given parameters.<br>
-- outputs.tf: Define the output parameters, which will be printed during `terraform apply` or `terraform output`.  Some configure parameters are printed here.<br>。
+- outputs.tf: Define the output parameters, which will be printed during `terraform apply` or `terraform output`.  Some configure parameters are printed here.<br>
 - variable.tf: Define the parameters which are used in main.tf,including `TENCENTCLOUD_REGION`,`TENCENTCLOUD_SECRET_ID` as well as `TENCENTCLOUD_SECRET_KEY`.<br>
 
 The advantage of writing separate files in this way is to avoid the main.tf file being too long, and it is easier to quickly find different types of resources and parameters. <br>
@@ -242,54 +242,50 @@ Take my domain name `http://www.robertqiu.site/` as an example, configure DNS re
 
 ### 5.4 Config L7 Rule via Terraform API
 
-具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L7-Rule)<br>
+In terms of the detail Terraform code and API, please refer to [Tencent Terraform L7 Rule Config](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L7-Rule)<br>
 
-- main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中配置了DDoS L7层的转发规则。<br>
-- data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
-- outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。<br>。
-- variable.tf: 定义了main.tf中需要使用参数，其中包括：资源可用区域`TENCENTCLOUD_REGION`，使用腾讯云需要配置的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`。<br>
-这样分开文件书写的好处是，避免main.tf文件过长，更容易快速找到不同类型的资源和参数。<br>
-定义好了如上文件，在对应的文件夹下，直接运行如下命令即可：<br>
+- main.tf: This is the entry file of Terrform , which includes file path, resources, tencent authdication key as well as the configued rules。<br>
+- data.tf: The `data` that is used to search the resource based on given parameters.<br>
+- outputs.tf: Define the output parameters, which will be printed during `terraform apply` or `terraform output`.  Some configure parameters are printed here.<br>
+- variable.tf: Define the parameters which are used in main.tf,including `TENCENTCLOUD_REGION`,`TENCENTCLOUD_SECRET_ID` as well as `TENCENTCLOUD_SECRET_KEY`.<br>
 
+The advantage of writing separate files in this way is to avoid the main.tf file being too long, and it is easier to quickly find different types of resources and parameters. <br>
+
+The user who wants to test terraform code should replace `TENCENTCLOUD_SECRET_ID` and `TENCENTCLOUD_SECRET_KEY` before run `terraform command`.  Run the following `terraform command` after replacing `TENCENTCLOUD_SECRET_ID` and `TENCENTCLOUD_SECRET_KEY`:<br>
+Initialization<br>
 ```
 terraform init
 ```
 
-确定被调用的文件，计算执行计划。<br>
-
+Bonding related terraform and figure out the execute plan. <br>
 ```
 terraform plan
 ```
 
-执行terraform命令，创建虚拟机。<br>
-
+Run `terraform apply` command, for here, a L7 rule is configured in the product. <br>
 ```
 terraform apply
 ```
 
-执行terraform命令，删除虚拟机。<br>
-
+Run `terraform destory` command. The resource created by `terraform apply` will be destoried.<br>
 ```
 terraform destory
 ```
 
-执行terraform命令，打印输出定义的output参数。<br>
-
+Print the output parameters defined in `output.tf`。<br>
 ```
 terraform output
 ```
 
-成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。<br>
+After successfully running `terraform apply`, corresponding configuration will be shown in the Anti-DDoS website.<br>
 <br>
 <br>
 
-### 5.5 测试网站是否可以正常访问
-
-测试网站，可以被正常访问。
-![网站访问](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "网站访问")<br>
+### 5.5 Test
+Test whether the website can be accessed.
+![Web Access Picture](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/website-look.png "Web Access Picture")<br>
 <br>
 <br>
 
-# 参考文档
-
-[腾讯官网API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance)<br>
+# Reference
+[Tencent Offical API](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/instance)
