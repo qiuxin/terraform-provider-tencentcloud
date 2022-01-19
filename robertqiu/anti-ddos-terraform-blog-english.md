@@ -1,3 +1,29 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Table of contents](#table-of-contents)
+- [Information](#information)
+- [Function](#function)
+- [Topology](#topology)
+- [Environment-construction](#environment-construction)
+  - [Step1-Install Terraform](#step1-install-terraform)
+  - [Step 2 - Create a virtual machine](#step-2---create-a-virtual-machine)
+  - [Step3-Create-DDoS](#step3-create-ddos)
+  - [Step4-Config-l4-interface](#step4-config-l4-interface)
+    - [4.1 Config-Security-Group-of-VM](#41-config-security-group-of-vm)
+    - [4.2  Config L4 Rule via Terraform API](#42--config-l4-rule-via-terraform-api)
+    - [4.3 Test](#43-test)
+  - [第五步-调用L7层接口](#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E8%B0%83%E7%94%A8l7%E5%B1%82%E6%8E%A5%E5%8F%A3)
+    - [5.1 配置虚拟机安全组](#51-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E5%85%A8%E7%BB%84)
+    - [5.2 购买域名](#52-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D)
+    - [5.3 配置腾讯云的DNS域名解析](#53-%E9%85%8D%E7%BD%AE%E8%85%BE%E8%AE%AF%E4%BA%91%E7%9A%84dns%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90)
+    - [5.4 通过Terraform API来配置DDOS L7规则](#54-%E9%80%9A%E8%BF%87terraform-api%E6%9D%A5%E9%85%8D%E7%BD%AEddos-l7%E8%A7%84%E5%88%99)
+    - [5.5 测试网站是否可以正常访问](#55-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%AB%99%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE)
+- [参考文档](#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Table of contents
 
 - [Table of contents](#table-of-contents)
