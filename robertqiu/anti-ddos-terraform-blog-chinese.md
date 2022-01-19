@@ -1,15 +1,28 @@
-# 目录
-- [说明](#说明)
-- [Terraform功能](#Terraform功能)
-- [部署环境拓扑架构](#部署环境拓扑架构)
-- [环境搭建](#环境搭建)
-  - [第一步 配置电脑安装Terraform](#第一步-配置电脑安装Terraform)
-  - [第二步 创建虚拟机](#第二步-创建虚拟机)
-  - [第三步 创建DDoS](#第三步-创建DDoS)
-  - [第四步 调用L4层接口](#第四步-调用L4层接口)
-  - [第五步 调用L7层接口](#第五步-调用L7层接口)
-- [参考文档](#参考文档)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [说明](#%E8%AF%B4%E6%98%8E)
+- [Terraform功能](#terraform%E5%8A%9F%E8%83%BD)
+- [部署环境拓扑架构](#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83%E6%8B%93%E6%89%91%E6%9E%B6%E6%9E%84)
+- [环境搭建](#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA)
+  - [第一步-配置电脑安装Terraform](#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E9%85%8D%E7%BD%AE%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85terraform)
+  - [第二步-创建虚拟机](#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA)
+  - [第三步-创建DDoS](#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%88%9B%E5%BB%BAddos)
+  - [第四步 调用L4层接口](#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E8%B0%83%E7%94%A8l4%E5%B1%82%E6%8E%A5%E5%8F%A3)
+    - [4.1 配置虚拟机安全组](#41-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E5%85%A8%E7%BB%84)
+    - [4.2  通过Terraform API来配置DDOS L4的规则](#42--%E9%80%9A%E8%BF%87terraform-api%E6%9D%A5%E9%85%8D%E7%BD%AEddos-l4%E7%9A%84%E8%A7%84%E5%88%99)
+    - [4.3 测试访问](#43-%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE)
+  - [第五步-调用L7层接口](#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E8%B0%83%E7%94%A8l7%E5%B1%82%E6%8E%A5%E5%8F%A3)
+    - [5.1 配置虚拟机安全组](#51-%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E5%85%A8%E7%BB%84)
+    - [5.2 购买域名](#52-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D)
+    - [5.3 配置腾讯云的DNS域名解析](#53-%E9%85%8D%E7%BD%AE%E8%85%BE%E8%AE%AF%E4%BA%91%E7%9A%84dns%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90)
+    - [5.4 通过Terraform API来配置DDOS L7规则](#54-%E9%80%9A%E8%BF%87terraform-api%E6%9D%A5%E9%85%8D%E7%BD%AEddos-l7%E8%A7%84%E5%88%99)
+    - [5.5 测试网站是否可以正常访问](#55-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%AB%99%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%AE%BF%E9%97%AE)
+- [参考文档](#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 说明
 该文档用于帮助大家快速使用Terraform平台/接口来操作腾讯云的DDoS产品。<br>
@@ -151,12 +164,12 @@ terraform init
 terraform plan
 ```
 
-执行terraform命令，创建虚拟机。<br>
+执行terraform命令，创建DDoS L4规则。<br>
 ```
 terraform apply
 ```
 
-执行terraform命令，删除虚拟机。<br>
+执行terraform命令，删除`terraform apply`创建的L4规则。<br>
 ```
 terraform destory
 ```
@@ -218,12 +231,12 @@ terraform init
 terraform plan
 ```
 
-执行terraform命令，创建虚拟机。<br>
+执行terraform命令，创建DDoS L7规则。<br>
 ```
 terraform apply
 ```
 
-执行terraform命令，删除虚拟机。<br>
+执行terraform命令，创建DDoS L7规则。<br>
 ```
 terraform destory
 ```
