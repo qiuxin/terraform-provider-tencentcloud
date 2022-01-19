@@ -2,16 +2,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Table of contents](#table-of-contents)
 - [Information](#information)
 - [Function](#function)
 - [Topology](#topology)
-- [Environment-construction](#environment-construction)
-  - [Step1-Install Terraform](#step1-install-terraform)
-  - [Step 2 - Create a virtual machine](#step-2---create-a-virtual-machine)
-  - [Step3-Create-DDoS](#step3-create-ddos)
-  - [Step4-Config-l4-interface](#step4-config-l4-interface)
-    - [4.1 Config-Security-Group-of-VM](#41-config-security-group-of-vm)
+- [Environment construction](#environment-construction)
+  - [Step1 Install Terraform](#step1-install-terraform)
+  - [Step 2 Create a virtual machine](#step-2-create-a-virtual-machine)
+  - [Step3 Create DDoS](#step3-create-ddos)
+  - [Step4 Config l4 interface](#step4-config-l4-interface)
+    - [4.1 Config Security Group of VM](#41-config-security-group-of-vm)
     - [4.2  Config L4 Rule via Terraform API](#42--config-l4-rule-via-terraform-api)
     - [4.3 Test](#43-test)
   - [第五步-调用L7层接口](#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E8%B0%83%E7%94%A8l7%E5%B1%82%E6%8E%A5%E5%8F%A3)
@@ -23,28 +22,6 @@
 - [参考文档](#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Information](#information)
-- [Function](#function)
-- [Topology](#topology)
-- [Environment-construction](#environment-construction)
-  - [Step 1-Install Terraform](#step1-install-terraform)
-  - [Step 2 -Create a virtual machine](#step-2---create-a-virtual-machine)
-  - [Step 3 -Create DDoS](#Step3-Create-DDoS)
-  - [Step 4 -Config L4 Interface](#Step4-Config-l4-interface)
-    - [4.1  Config Security Group of VM](#4.1-Config-Security-Group-of-VM)
-    - [4.2  通过Terraform API来配置DDOS L4的规则](#42--通过terraform-api来配置ddos-l4的规则)
-    - [4.3 测试访问](#43-测试访问)
-  - [第五步-调用L7层接口](#第五步-调用l7层接口)
-    - [5.1 配置虚拟机安全组](#51-配置虚拟机安全组)
-    - [5.2 购买域名](#52-购买域名)
-    - [5.3 配置腾讯云的DNS域名解析](#53-配置腾讯云的dns域名解析)
-    - [5.4 通过Terraform API来配置DDOS L7规则](#54-通过terraform-api来配置ddos-l7规则)
-    - [5.5 测试网站是否可以正常访问](#55-测试网站是否可以正常访问)
-- [参考文档](#参考文档)
 
 # Information
 
@@ -169,15 +146,15 @@ You can visit the web provided by nginx if the foreing operation is executed suc
 <br>
 <br>
 
-## Step3-Create-DDoS
+## Step3 Create DDoS
 
 Creating and deleting Tencent Anti-DDoS product are NOT supported yet.So creating DDoS product should be operated via website. <br>
 <br>
 <br>
 
-## Step4-Config-l4-interface
+## Step4 Config l4 interface
 
-### 4.1 Config-Security-Group-of-VM
+### 4.1 Config Security Group of VM
 
 After the data is connected to the Anti-DDoS Advanced(New), the source address of the data packet will be changed(Network Address Translation). It is necessary to enable the Forwarding IP Range in the security group of the virtual machine.<br>
 Forwarding IP Range, it can be got from tencent office website path  `Anti-DDoS Advanced(New) --> Service Packages `.<br>
