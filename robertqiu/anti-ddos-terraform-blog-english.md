@@ -107,12 +107,12 @@ Bonding related terraform and figure out the execute plan.
 terraform plan
 ```
 
-Run terraform comand, for here, a virtual machine defined in main.tf will be created.
+Run `terraform apply` command, for here, a virtual machine defined in main.tf will be created.
 ```
 terraform apply
 ```
 
-Run terraform destory command. The resource created by `terraform apply` will be destoried.
+Run `terraform destory` command. The resource created by `terraform apply` will be destoried.
 ```
 terraform destory
 ```
@@ -151,63 +151,63 @@ Creating and deleting Tencent Anti-DDoS product are NOT supported yet.So creatin
 
 ## Step4-Config-l4-interface
 
-### 4.1 配置虚拟机安全组
+### 4.1 Config Security Group of VM(origin service)
 
-数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
-有关具体的Forwarding IP Range，可以在国际站的：Anti-DDoS Advanced(New) --> Service Packages 界面下查询到。<br>
+After the data is connected to the Anti-DDoS Advanced(New), the source address of the data packet will be changed(Network Address Translation). It is necessary to enable the Forwarding IP Range in the security group of the virtual machine.
+Forwarding IP Range, it can be got from tencent office website path  `Anti-DDoS Advanced(New) --> Service Packages `.<br>
 <br>
 <br>
 
-### 4.2  通过Terraform API来配置DDOS L4的规则
+### 4.2  Config L4 Rule via Terraform API
 
-具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L4 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L4-Rule)<br>
-在如上文件夹中，主要有四个文件：<br>
+In terms of the detail Terraform code and API, please refer to [Tencent Terraform L4 Rule Config](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L4-Rule)<br>
 
-- main.tf: Terraform 的入口文件，需要引用的文件路径，使用云资源的密钥，文件中配置了DDoS L4层的转发规则，包括在指定的`resource_id`DDoS资源上的源端口，转发端口，优先级，健康检查等规则。<br>
-- data.tf: 在腾讯云资源中查找到最对应的资源，查找到的资源通过参数的方式输入给main.tf中的资源。<br>
-- outputs.tf: 输出的参数，在`terraform apply`运行完成后 或者 运行`terraform output`将会打印这里定义的参数。这里主要打印了：配置L4规则中的一些参数信息<br>。
-- variable.tf: 定义了main.tf中需要使用参数，其中包括：虚拟机可用区域`TENCENTCLOUD_REGION`，使用腾讯云需要配置的`TENCENTCLOUD_SECRET_ID`和`TENCENTCLOUD_SECRET_KEY`。<br>
-这样分开文件书写的好处是，避免main.tf文件过长，更容易快速找到不同类型的资源和参数。<br>
-定义好了如上文件，在对应的文件夹下，直接运行如下命令即可：<br>
+In the above folder, there are mainly four files: <br>
 
+- main.tf: This is the entry file of Terrform , which includes file path, resources, tencent authdication key as well as the configued rules(the source port on the specified `resource_id` DDoS resource, the forwarding port, the priority, Rules such as health checks and so on).
+- data.tf: The `data` that is used to search the resource based on given parameters.<br>
+- outputs.tf: Define the output parameters, which will be printed during `terraform apply` or `terraform output`.  Some configure parameters are printed here.<br>。
+- variable.tf: Define the parameters which are used in main.tf,including `TENCENTCLOUD_REGION`,`TENCENTCLOUD_SECRET_ID` as well as `TENCENTCLOUD_SECRET_KEY`.<br>
+
+The advantage of writing separate files in this way is to avoid the main.tf file being too long, and it is easier to quickly find different types of resources and parameters. <br>
+
+
+The user who wants to test terraform code should replace `TENCENTCLOUD_SECRET_ID` and `TENCENTCLOUD_SECRET_KEY` before run `terraform command`.  Run the following `terraform command` after replacing `TENCENTCLOUD_SECRET_ID` and `TENCENTCLOUD_SECRET_KEY`:<br>
+
+Initialization<br>
 ```
 terraform init
 ```
 
-确定被调用的文件，计算执行计划。<br>
-
+Bonding related terraform and figure out the execute plan. <br>
 ```
 terraform plan
 ```
 
-执行terraform命令，创建虚拟机。<br>
-
+Run `terraform apply` command, for here, a L4 rule is configured in the product. <br>
 ```
 terraform apply
 ```
 
-执行terraform命令，删除虚拟机。<br>
 
+Run `terraform destory` command. The resource created by `terraform apply` will be destoried.<br>
 ```
 terraform destory
 ```
 
-执行terraform命令，打印输出定义的output参数。<br>
-
+Print the output parameters defined in `output.tf`。<br>
 ```
 terraform output
 ```
 
-成功运行`terraform apply`之后，就可以在Anti-DDoS配置界面中看到对应的配置了。<br>
+After successfully running `terraform apply`, corresponding configuration will be shown in the Anti-DDoS website.
 <br>
 <br>
 
-### 4.3 测试访问
-
-配置完虚拟机安全组之后，就可以通过高仿IP提供的IP地址来登陆访问虚拟机了。通过 “ssh命令 + 高仿IP” 的组合来访问虚拟机。 <br>
-
+### 4.3 Test
+You can log in and access the virtual machine through the IP address provided by Anti DDoS product. Access the virtual machine through the combination of "ssh command + Anti DDoS IP".
 ```
-ssh root@${高仿IP地址} -p $port
+ssh root@${Anti DDoS IP} -p ${port}
 ```
 
 <br>
