@@ -80,9 +80,9 @@ wherein：<br>
 - VM: The virtual machine is the source site of the business and the user's access destination.<br>
 - Computer/Laptop: The computer/laptop in the picture is used to represent the installation location of the Terraform platform. The computer/laptop uses the Terraform API to configure DDoS products, virtual machine products, and related networking and security groups. <br>
 
-# Environment-construction
+# Environment construction
 
-## Step1-Install Terraform
+## Step1 Install Terraform
 
 Install Terraform software on the computer. Installation commands for CentOS are itemized below:<br>
 
@@ -108,7 +108,7 @@ In terms of installaiton on multiple operation system, please refer to:
 <br>
 <br>
 
-## Step 2 - Create a virtual machine
+## Step 2 Create a virtual machine
 
 The second step is creating a virtual machine on Tencent Cloud via terrform API.<br>
 
