@@ -208,7 +208,7 @@ After successfully running `terraform apply`, corresponding configuration will b
 <br>
 
 ### 4.3 Test
-You can log in and access the virtual machine through the IP address provided by Anti DDoS product. Access the virtual machine through the combination of "ssh command + Anti DDoS IP".
+You can log in and access the virtual machine through IP address provided by Anti DDoS product. Access the virtual machine through the combination of "ssh command + Anti DDoS IP".
 ```
 ssh root@${Anti DDoS IP} -p ${port}
 ```
@@ -219,7 +219,6 @@ ssh root@${Anti DDoS IP} -p ${port}
 ## Step5 Config L7 Rule
 
 ### 5.1 Config Security Group of VM(Origin Server)
-
 After the data is connected to the Anti-DDoS Advanced(New), the source address of the data packet will be changed(Network Address Translation). It is necessary to enable the Forwarding IP Range in the security group of the virtual machine.<br>
 Forwarding IP Range, it can be got from tencent office website path  `Anti-DDoS Advanced(New) --> Service Packages `.<br>
 <br>
@@ -227,24 +226,21 @@ Note well: `Section 4.1` and `Section 5.1` are completely the same. Skip `Sectio
 <br>
 <br>
 
-### 5.2 购买域名
-
-如果没有域名，访问如下网站进行购买：[腾讯云域名购买](https://console.cloud.tencent.com/domain)<br>
-![腾讯云域名购买示意图](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/buy-domain.png "腾讯云域名购买示意图")<br>
-
-如果已经有腾讯云域名，直接进入5.3.
-如果需要转入，则可以转入域名。
+### 5.2 Purchase a domain name
+Note well: Skip `5.2 Purchase a domain name` if you have already got a domain name.
+If you don't have a domain name, visit the following website to purchase: [Purchase Tencent Cloud Domain Name](https://console.cloud.tencent.com/domain)<br>
+![Purchase Tencent Cloud Domain Name Picture](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/buy-domain.png "Purchase Tencent Cloud Domain Name Picture")<br>
 <br>
 <br>
 
-### 5.3 配置腾讯云的DNS域名解析
+### 5.3 Configuring Tencent Cloud DNS Domain Name Resolution
 
-以我的域名，`http://www.robertqiu.site/` 为例， 配置DNS解析如下：
-![腾讯云DNS解析](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/domain-setup.png "腾讯云DNS解析")<br>
+Take my domain name `http://www.robertqiu.site/` as an example, configure DNS resolution as follows:
+![Tencent Cloud DNS Domain Name Resolution](https://github.com/qiuxin/terraform-provider-tencentcloud/blob/master/robertqiu/picture/domain-setup.png "Tencent Cloud DNS Domain Name Resolution")<br>
 <br>
 <br>
 
-### 5.4 通过Terraform API来配置DDOS L7规则
+### 5.4 Config L7 Rule via Terraform API
 
 具体创建需要用的接口，以及调用样例，详见：[腾讯云Terraform L7 Rule](https://github.com/qiuxin/terraform-provider-tencentcloud/tree/master/robertqiu/antiDDoS-L7-Rule)<br>
 
