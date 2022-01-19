@@ -9,7 +9,7 @@
   - [Step 2 -Create a virtual machine](#step-2---create-a-virtual-machine)
   - [Step 3 -Create DDoS](#Step3-Create-DDoS)
   - [Step 4 -Config L4 Interface](#Step4-Config-l4-interface)
-    - [4.1  Config Security Group of VM(origin service)](#Config-Security-Group-of-VM)
+    - [4.1  Config Security Group of VM](#4.1-Config-Security-Group-of-VM)
     - [4.2  通过Terraform API来配置DDOS L4的规则](#42--通过terraform-api来配置ddos-l4的规则)
     - [4.3 测试访问](#43-测试访问)
   - [第五步-调用L7层接口](#第五步-调用l7层接口)
