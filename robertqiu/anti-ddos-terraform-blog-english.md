@@ -152,9 +152,9 @@ Creating and deleting Tencent Anti-DDoS product are NOT supported yet.So creatin
 <br>
 <br>
 
-## Step4 Config l4 interface
+## Step4 Config L4 Rule
 
-### 4.1 Config Security Group of VM
+### 4.1 Config Security Group of VM(Origin Server)
 
 After the data is connected to the Anti-DDoS Advanced(New), the source address of the data packet will be changed(Network Address Translation). It is necessary to enable the Forwarding IP Range in the security group of the virtual machine.<br>
 Forwarding IP Range, it can be got from tencent office website path  `Anti-DDoS Advanced(New) --> Service Packages `.<br>
@@ -216,13 +216,14 @@ ssh root@${Anti DDoS IP} -p ${port}
 <br>
 <br>
 
-## 第五步-调用L7层接口
+## Step5 Config L7 Rule
 
-### 5.1 配置虚拟机安全组
+### 5.1 Config Security Group of VM(Origin Server)
 
-数据接入高仿IP之后，数据包的源地址会被做NAT，需要将虚拟机的安全组开通Forwarding IP Range。<br>
-有关具体的Forwarding IP Range，可以在国际站的：`Anti-DDoS Advanced(New) --> Service Packages` 界面下查询到。<br>
-注：4.1和5.1的操作是一样的，如果在4.1已经操作过，无需重复操作。
+After the data is connected to the Anti-DDoS Advanced(New), the source address of the data packet will be changed(Network Address Translation). It is necessary to enable the Forwarding IP Range in the security group of the virtual machine.<br>
+Forwarding IP Range, it can be got from tencent office website path  `Anti-DDoS Advanced(New) --> Service Packages `.<br>
+<br>
+Note well: `Section 4.1` and `Section 5.1` are completely the same. Skip `Section 5.1` if you have operated it in `Section 4.1`.
 <br>
 <br>
 
